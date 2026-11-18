@@ -1,0 +1,53 @@
+* {
+    margin: 0 auto;
+}
+
+body {
+    background-color: rgb(14, 31, 54);
+    text-align: center;
+    color: white;
+}
+
+.card-container {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+  margin-top: 25px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* Preserva os elementos filhos no espaço 3D */
+  transition: transform 0.8s;
+  cursor: pointer;
+}
+
+.card-container:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card_frente,
+.card_tras {
+  position: absolute; /* divs filhos se posicionem dentro dos limites definidos pelo div pai (card total)*/
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo do lado da Frente */
+.card_frente {
+  background: linear-gradient(135deg, #110d57, #5687c7);
+  color: #ffffff;
+}
+
+.card_tras {
+  background: linear-gradient(135deg, #057496, #23316e);
+  color: #ffffff;
+  transform: rotateY(180deg);
+}
